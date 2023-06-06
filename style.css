@@ -26,8 +26,6 @@ body {
   background: none;
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
 span {
@@ -237,6 +235,17 @@ span:after {
   border-right: 4px solid #5cb85c;
   transform: scaleX(-1) rotate(135deg);
   opacity: 0;
+}
+.text {
+  position: absolute;
+  height: 100%;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 @keyframes check {
   0% {

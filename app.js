@@ -7,9 +7,7 @@ const css = window.document.styleSheets[0];
 const root = document.querySelector(":root");
 const check = document.querySelector(".check");
 const kickBefore = window.getComputedStyle(kick, ":before");
-const kickAfter = window.getComputedStyle(kick, ":after");
 
-console.log(kickBefore.content);
 const getPkg = (name) => {
   css.insertRule(
     `@keyframes ${name} {
@@ -113,9 +111,6 @@ const driveTruck = (name) => {
   truckBody.style.animationDelay = "2s";
 };
 
-console.log(kickBefore.content);
-console.log(kickBefore.content == "Complete Order");
-
 kick.addEventListener("click", (e) => {
   if (kickBefore.content.includes("Complete Order")) {
     e.preventDefault();
@@ -138,8 +133,6 @@ kick.addEventListener("click", (e) => {
       loader.style.opacity = "0";
       root.style.setProperty("--pseudo-content", `"Order Placed"`);
       root.style.setProperty("--borderRadius", "10px");
-      console.log(kickAfter.content, kickBefore.content);
-      console.log(kickBefore.content.includes("Order Placed"));
       checkMark("check");
     }, 5000);
   } else {
@@ -148,5 +141,7 @@ kick.addEventListener("click", (e) => {
     truckBody.style.opacity = "1";
     check.style.display = "none";
     root.style.setProperty("--loaderBorderColor", "10px solid #141414");
+    document.querySelector(".text").textContent =
+      "YOUR ORDER WILL BE PROCESSED SOON! ";
   }
 });
