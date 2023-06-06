@@ -132,3 +132,6 @@ kick.addEventListener("click", (e) => {
     checkMark("check");
   }, 5000);
 });
+
+
+
