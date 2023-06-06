@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+}
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:root {
+  --pseudo-content: "Complete Order";
+  --borderRadius: "10px";
+}
+.animated_btn {
+  width: 480px;
+  height: 55px;
+  border: none;
+  outline: none;
+  background: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+span {
+  font-size: 20px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform 1s;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* perspective: 1000px; */
+}
+span:before,
+span:after {
+  position: absolute;
+  content: var(--pseudo-content);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: var(--borderRadius);
+  justify-content: center;
+}
+span:before {
+  color: #fff;
+  background: #121218;
+  transform: rotateY(0deg) translateZ(25px);
+}
+span:after {
+  color: #706f7c;
+  transform: rotateX(90deg) translateZ(25px);
+  content: "";
+  border-bottom: 10px solid;
+}
+.truck_body {
+  position: absolute;
+  height: 136px;
+  top: 230px;
+  left: 460px;
+  transition: 1.7s;
+  opacity: 0;
+}
+.truck {
+  width: 120px;
+  height: 90px;
+  background-color: #333;
+  position: absolute;
+}
+.body {
+  width: 80%;
+  height: 100%;
+  background-color: #555;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+.tyre {
+  width: 30px;
+  height: 30px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner_tyre {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner_tyre2 {
+  width: 55%;
+  height: 55%;
+  border-radius: 50%;
+  background-color: #ff2022;
+}
+.front {
+  bottom: -20px;
+  left: 36px;
+  z-index: 10;
+}
+.rear {
+  right: -55px;
+  z-index: 10;
+  bottom: -21px;
+}
+.back {
+  left: 3px;
+  bottom: -20px;
+  z-index: 0;
+}
+.back2 {
+  right: -17px;
+  bottom: -20px;
+}
+.front_bumper {
+  width: 20px;
+  height: 13px;
+  background-color: burlywood;
+  position: absolute;
+  bottom: 8px;
+  right: -84px;
+  z-index: 1;
+}
+.bumper {
+  width: 131px;
+  height: 5px;
+  background-color: #000;
+  position: absolute;
+  bottom: -4px;
+  left: -7px;
+  z-index: 10;
+}
+.rear_bumper {
+  width: 118px;
+  height: 5px;
+  background-color: #000;
+  position: absolute;
+  bottom: -4px;
+  right: -88px;
+  z-index: 1;
+}
+.trapezium {
+  width: 31px;
+  height: 0;
+  border-bottom: 26px solid #333;
+  border-left: 14px solid transparent;
+  position: absolute;
+  right: -93px;
+  transform: rotate(90deg);
+  top: 54px;
+}
+.trapezium2 {
+  width: 71px;
+  height: 0;
+  border-bottom: 44px solid #333;
+  border-left: 0px solid transparent;
+  position: absolute;
+  transform: rotate(90deg);
+  right: -57px;
+  top: 32px;
+}
+.trapezium1 {
+  width: 43px;
+  height: 0;
+  border-bottom: 16px solid #333;
+  border-left: 28px solid transparent;
+  position: absolute;
+  transform: rotate(90deg);
+  right: -86px;
+  top: 46px;
+}
+.inner_trapezium {
+  width: 22px;
+  border-bottom: 12px solid red;
+  position: absolute;
+  left: 8px;
+  top: 15px;
+}
+.inner_trapezium2 {
+  border-bottom: 7px solid red;
+  border-left: 23px solid transparent;
+  width: 0px;
+  right: 41px;
+  top: 9px;
+  position: absolute;
+}
+.box {
+  width: 50px;
+  height: 45px;
+  background-color: burlywood;
+  position: absolute;
+  top: 18px;
+  left: -148px;
+  display: none;
+  /* animation: drop 1s ease forwards; */
+}
+.box1 {
+  width: 120px;
+  height: 50px;
+  border: 1px solid;
+}
+.loader {
+  background: #141414;
+  height: 12px;
+  width: 90px;
+  position: relative;
+  transform: rotateX(60deg) translateZ(55px);
+  display: none;
+}
+.check {
+  top: 48%;
+  right: 124px;
+  width: 16px;
+  content: "";
+  height: 26px;
+  position: absolute;
+  transform-origin: left top;
+  border-top: 4px solid #5cb85c;
+  border-right: 4px solid #5cb85c;
+  transform: scaleX(-1) rotate(135deg);
+  opacity: 0;
+}
+@keyframes check {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: 16px;
+    opacity: 1;
+  }
+  40% {
+    height: 26px;
+    width: 16px;
+    opacity: 1;
+  }
+  100% {
+    height: 26px;
+    width: 16px;
+    opacity: 1;
+  }
+}
