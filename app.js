@@ -6,7 +6,10 @@ const box = document.querySelector(".box");
 const css = window.document.styleSheets[0];
 const root = document.querySelector(":root");
 const check = document.querySelector(".check");
+const kickBefore = window.getComputedStyle(kick, ":before");
+const kickAfter = window.getComputedStyle(kick, ":after");
 
+console.log(kickBefore.content);
 const getPkg = (name) => {
   css.insertRule(
     `@keyframes ${name} {
@@ -110,28 +113,40 @@ const driveTruck = (name) => {
   truckBody.style.animationDelay = "2s";
 };
 
+console.log(kickBefore.content);
+console.log(kickBefore.content == "Complete Order");
+
 kick.addEventListener("click", (e) => {
-  e.preventDefault();
-  e.target.style.transform = "translateZ(-25px) rotateX(-90deg)";
-  root.style.setProperty("--borderRadius", "0px");
-  truckBody.style.opacity = "1";
-  setTimeout(() => {
-    loader.style.display = " block";
-    load("load");
-  }, 2500);
-  setTimeout(() => {
-    box.style.display = "block";
-    getPkg("drop");
-  }, 1000);
-  driveTruck("move");
-  setTimeout(() => {
-    kick.style.transform = "translateZ(25px) rotateX(0deg)";
-    truckBody.style.display = "none";
-    loader.style.display = "none";
-    root.style.setProperty("--pseudo-content", `"Order Placed"`);
-    checkMark("check");
-  }, 5000);
+  if (kickBefore.content.includes("Complete Order")) {
+    e.preventDefault();
+    e.target.style.transform = "translateZ(-25px) rotateX(-90deg)";
+    root.style.setProperty("--borderRadius", "0px");
+    truckBody.style.opacity = "1";
+    setTimeout(() => {
+      loader.style.display = " block";
+      load("load");
+    }, 2500);
+    setTimeout(() => {
+      box.style.display = "block";
+      getPkg("drop");
+    }, 1000);
+    driveTruck("move");
+    setTimeout(() => {
+      kick.style.transform = "translateZ(25px) rotateX(0deg)";
+      truckBody.style.transition = "500ms";
+      truckBody.style.opacity = "0";
+      loader.style.opacity = "0";
+      root.style.setProperty("--pseudo-content", `"Order Placed"`);
+      root.style.setProperty("--borderRadius", "10px");
+      console.log(kickAfter.content, kickBefore.content);
+      console.log(kickBefore.content.includes("Order Placed"));
+      checkMark("check");
+    }, 5000);
+  } else {
+    e.target.style.transform = "translateZ(-25px) rotateX(-90deg)";
+    root.style.setProperty("--borderRadius", "0px");
+    truckBody.style.opacity = "1";
+    check.style.display = "none";
+    root.style.setProperty("--loaderBorderColor", "10px solid #141414");
+  }
 });
-
-
-

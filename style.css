@@ -16,6 +16,7 @@ body {
 :root {
   --pseudo-content: "Complete Order";
   --borderRadius: 10px;
+  --loaderBorderColor: 10px solid;
 }
 .animated_btn {
   width: 480px;
@@ -60,7 +61,7 @@ span:after {
   color: #706f7c;
   transform: rotateX(90deg) translateZ(25px);
   content: "";
-  border-bottom: 10px solid;
+  border-bottom: var(--loaderBorderColor);
 }
 .truck_body {
   position: absolute;
