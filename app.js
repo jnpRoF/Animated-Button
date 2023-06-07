@@ -142,6 +142,6 @@ kick.addEventListener("click", (e) => {
     check.style.display = "none";
     root.style.setProperty("--loaderBorderColor", "10px solid #141414");
     document.querySelector(".text").textContent =
-      "YOUR ORDER WILL BE PROCESSED SOON! ";
+      "Your order will be processed soon! ";
   }
 });
